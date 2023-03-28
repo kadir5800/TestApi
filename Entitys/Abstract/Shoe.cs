@@ -1,29 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Entitys.Abstract
+﻿namespace Entitys.Abstract
 {
-    public class Shoe
+    public class Shoe : DefOb
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public bool IsDeleted { get; set; }
-        public DateTime CreationDate { get; set; }
         public decimal Price { get; set; }
         public int Gender { get; set; }
         public int Number { get; set; }
         public decimal DiscountPrice { get; set; }
-        public int? BrandsId { get; set; }
-        public int ColorsId { get; set; }
-        public int CategoriesId { get; set; }
-        public int? CampaignsId { get; set; }
-        public virtual Campaign Campaigns { get; set; }
-        public virtual Brand Brands { get; set; }
-        public virtual Color Colors { get; set; }
+        public long? BrandsId { get; set; }
+        public long ColorsId { get; set; }
+        public long CategoryId { get; set; }
+        public long? CampaignsId { get; set; }
+        public long ModelId { get; set; }
+        public virtual Campaign Campaign { get; set; }
+        public virtual Model Model{ get; set; }
+        public virtual Brand Brand { get; set; }
+        public virtual Color Color { get; set; }
+        public virtual Category Categorie { get; set; }
 
     }
 }

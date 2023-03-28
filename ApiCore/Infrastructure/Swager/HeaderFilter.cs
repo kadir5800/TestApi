@@ -12,7 +12,7 @@ namespace ApiCore.Infrastructure.Swager
             {
                 operation.Parameters.Add(new OpenApiParameter
                 {
-                    Name = "TestApi-Token",
+                    Name = "Zapi-Token",
                     In = ParameterLocation.Header,
                     Description = "Önceden Edinmiş Olduğunuz Token",
                     Required = true,

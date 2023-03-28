@@ -1,13 +1,8 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using Microsoft.Extensions.Configuration;
-using ApiCore.Infrastructure.Swager;
-using ApiCore.Infrastructure.Middleware;
 using ApiCore.Infrastructure;
-using ApiCore.Model.service;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.AspNetCore.Builder;
+using ApiCore.Infrastructure.Middleware;
+using ApiCore.Infrastructure.Swager;
+using EntityFramework.Context;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,10 +13,14 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddSwaggerGen(c => { 
-      c.OperationFilter<HeaderFilter>();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.OperationFilter<HeaderFilter>();
 });
 builder.Services.AddEntityFrameworkCollection();
+
+builder.Services.AddDbContext<ZDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DBConnection")));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

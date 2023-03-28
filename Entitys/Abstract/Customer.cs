@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Entitys.Abstract
 {
@@ -17,8 +12,6 @@ namespace Entitys.Abstract
         }
         [Key]
         public int Id { get; set; }
-        public string UserName { get; set; }
-        public string Password { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Phone { get; set; }
@@ -27,6 +20,7 @@ namespace Entitys.Abstract
         public string Addres { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime CreationDate { get; set; }
+        public long UserId { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
         public virtual ICollection<Favority> Favorities { get; set; }
         public virtual ICollection<Basket> Baskets { get; set; }
