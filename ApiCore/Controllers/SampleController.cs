@@ -1,5 +1,4 @@
-﻿using ApiCore.Infrastructure.Middleware;
-using ApiCore.Model;
+﻿using ApiCore.Model;
 using ApiCore.Model.service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -27,8 +26,8 @@ namespace ApiCore.Controllers
         [ProducesResponseType(typeof(response), 200)]
         public JsonResult Login([FromBody] getAllMemberCardRequest request)
         {
-            var data=_fakeResponse.GetResponse();
-            var response=new JsonResult(data);
+            var data = _fakeResponse.GetResponse();
+            var response = new JsonResult(data);
 
             return response;
         }

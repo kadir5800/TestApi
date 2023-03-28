@@ -1,6 +1,4 @@
 ﻿using ApiCore.Infrastructure.Middleware;
-using Microsoft.Extensions.Localization;
-using System.ComponentModel.DataAnnotations;
 
 namespace ApiCore.Model.service
 {

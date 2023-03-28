@@ -1,6 +1,4 @@
-﻿using ApiCore.Infrastructure.Middleware;
-
-namespace ApiCore.Model.service
+﻿namespace ApiCore.Model.service
 {
     public class FakeResponse : ddService, IFakeResponse
     {

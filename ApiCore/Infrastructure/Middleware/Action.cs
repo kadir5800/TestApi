@@ -1,8 +1,10 @@
-﻿namespace ApiCore.Infrastructure.Middleware
+﻿using Business.IMeneger;
+
+namespace ApiCore.Infrastructure.Middleware
 {
     public class Action
     {
-        
+
         private readonly RequestDelegate _next;
 
         public Action(RequestDelegate next)
@@ -15,32 +17,36 @@
             if (context.Request.Path.StartsWithSegments("/Api"))
             {
                 // header'ın değeri null ya da boş ise hata fırlat
-                    if (string.IsNullOrEmpty(context.Request.Headers["testapi-token"]))
+                if (string.IsNullOrEmpty(context.Request.Headers["Zapi-Token"]))
                 {
                     context.Response.StatusCode = StatusCodes.Status400BadRequest;
-                    await context.Response.WriteAsync("testapi-token Zorunlu");
+                    await context.Response.WriteAsync("Zapi-Token Zorunlu");
                     return;
                 }
                 else
                 {
-                    var token=context.Request.Headers["testapi-token"];
+                    var token = context.Request.Headers["Zapi-Token"];
                     var clientContext = context.RequestServices.GetService<IClientContext>();
-                    clientContext.SetCulture("tr:TR");
-                    clientContext.SetToken(token);
-                    clientContext.SetUserId(10);
-                    //var _authenticationManager = context.RequestServices.GetService<IMobileManager>();
+                    var _authenticationManager = context.RequestServices.GetService<ITokenControl>();
+                    var user = _authenticationManager.getToken(token);
+                    if (!user.Status)
+                    {
+                        context.Response.StatusCode = StatusCodes.Status400BadRequest;
+                        await context.Response.WriteAsync("Zapi-Token Zorunlu");
+                        return;
+                    }
+
+                    clientContext.SetToken(user.token);
+                    clientContext.SetUserId(user.Id);
+
                     await _next(context);
-                    return;
                 }
-               
+
             }
             else
             {
                 await _next(context);
             }
-
-            // header'ın değeri geçerli ise diğer middleware'lere devam et
-            await _next(context);
         }
     }
 

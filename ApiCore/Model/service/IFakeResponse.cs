@@ -1,6 +1,6 @@
 ﻿namespace ApiCore.Model.service
 {
-    public interface IFakeResponse: IddServices
+    public interface IFakeResponse : IddServices
     {
         response GetResponse();
     }

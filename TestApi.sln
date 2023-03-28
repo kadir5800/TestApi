@@ -5,8 +5,6 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entitys", "Entitys\Entitys.csproj", "{A7561EEE-EE72-4E9F-8DC1-D1D5EA879837}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{656517F1-36B1-4804-AAF7-B20866B5E261}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "business\Business.csproj", "{6CE94FC7-FC0B-4CF1-BCF3-00008CC80FFE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFramework", "EntityFramework\EntityFramework.csproj", "{3835A9CD-B179-464E-9A6A-F0625136CB6B}"
@@ -23,10 +21,6 @@ Global
 		{A7561EEE-EE72-4E9F-8DC1-D1D5EA879837}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7561EEE-EE72-4E9F-8DC1-D1D5EA879837}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7561EEE-EE72-4E9F-8DC1-D1D5EA879837}.Release|Any CPU.Build.0 = Release|Any CPU
-		{656517F1-36B1-4804-AAF7-B20866B5E261}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{656517F1-36B1-4804-AAF7-B20866B5E261}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{656517F1-36B1-4804-AAF7-B20866B5E261}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{656517F1-36B1-4804-AAF7-B20866B5E261}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6CE94FC7-FC0B-4CF1-BCF3-00008CC80FFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6CE94FC7-FC0B-4CF1-BCF3-00008CC80FFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CE94FC7-FC0B-4CF1-BCF3-00008CC80FFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,17 +39,5 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F5E1D16F-F746-4647-B82C-F9ECB9DBEEBF}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://mstfsserver.elektrosoft.com.tr/tfs/elektrosoft
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Core\\Core.csproj
-		SccProjectName1 = Core
-		SccLocalPath1 = Core
-		SccProjectUniqueName2 = Entitys\\Entitys.csproj
-		SccProjectName2 = Entitys
-		SccLocalPath2 = Entitys
 	EndGlobalSection
 EndGlobal

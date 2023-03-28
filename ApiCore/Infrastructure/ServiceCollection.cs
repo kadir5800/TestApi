@@ -1,6 +1,5 @@
 ﻿using ApiCore.Infrastructure.Middleware;
 using ApiCore.Model.service;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace ApiCore.Infrastructure
 {
