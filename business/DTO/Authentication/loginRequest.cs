@@ -8,7 +8,7 @@ namespace Business.DTO.Login
 {
     public class loginRequest
     {
-        public string userName { get; set; }
+        public string UserName { get; set; }
         public string Password { get; set; }
     }
 }

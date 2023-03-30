@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Business.Meneger
 {
-    public class ZServerService : IZServerService
+    public abstract class ZServerService : IZServerService
     {
         protected readonly IClientContext ClientContext;
 
@@ -23,12 +23,11 @@ namespace Business.Meneger
         {
             var cr = new ClientResult
             {
+                Data =data,
                 Success = true,
-                Code = code,
-                Message = message,
-                Data = data
+                Code=code,
+                Message = message
             };
-
             return cr;
         }
 

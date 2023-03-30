@@ -1,31 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Business.DTO.BaseObjects
+﻿namespace Business.DTO.BaseObjects
 {
     public interface IClientContext
     {
         string Token { get; set; }
-        long UserId { get; }
+        string UserId { get; }
 
 
         void SetToken(string token);
-        void SetUserId(long userId);
+        void SetUserId(string userId);
 
     }
 
     public class ClientContext : IClientContext
     {
         public string Token { get; set; }
-        public long UserId { get; private set; }
+        public string UserId { get; private set; }
 
         public ClientContext()
         {
             Token = default(string);
-            UserId = 0;
+            UserId = default(string);
         }
 
         public void SetToken(string token)
@@ -33,7 +27,7 @@ namespace Business.DTO.BaseObjects
             Token = token;
         }
 
-        public void SetUserId(long userId)
+        public void SetUserId(string userId)
         {
             UserId = userId;
         }

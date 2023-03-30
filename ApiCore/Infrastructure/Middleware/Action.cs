@@ -1,4 +1,5 @@
-﻿using Business.IMeneger;
+﻿using Business.DTO.BaseObjects;
+using Business.IMeneger;
 
 namespace ApiCore.Infrastructure.Middleware
 {

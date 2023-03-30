@@ -1,31 +1,34 @@
 ﻿using Business.DTO.BaseObjects;
 using Business.IMeneger;
-using EntityFramework.Context;
+using EntityFramework.Abstract;
 
 namespace Business.Meneger
 {
     public class TokenControl : ITokenControl
     {
-        private readonly ZDbContext _dbContext;
-        public TokenControl(ZDbContext dbContext = null)
+        private readonly ITokenDataAccess _tokenDataAccess;
+        public TokenControl(ITokenDataAccess tokenDataAccess)
         {
-            _dbContext=dbContext;
+            _tokenDataAccess=tokenDataAccess;
         }
         public ClientObject getToken(string token)
         {
             if (string.IsNullOrEmpty(token))
             {
-                return new ClientObject() { Id=0, token="", Status=false };
+                var data = new ClientObject() { Id="", token="", Status=false };
+                return data;
             }
 
-            var isCustomer = _dbContext.Users.FirstOrDefault(f => f.Token==token);
+            var isCustomer = _tokenDataAccess.FilterBy(f => f.Token==token).Result.First();
             if (isCustomer==null)
             {
-                return new ClientObject() { Id=0, token="", Status=false };
+                var clo = new ClientObject() { Id="", token="", Status=false };
+                return clo;
             }
             else
             {
-                return new ClientObject() { Id=isCustomer.Id, token=isCustomer.Token, Status=true };
+                var clo = new ClientObject() { Id=isCustomer.Id.ToString(), token=isCustomer.Token, Status=true };
+                return clo;
             }
         }
     }

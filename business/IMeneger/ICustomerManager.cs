@@ -1,5 +1,5 @@
 ﻿using Business.DTO.BaseObjects;
-using Business.DTO.Login;
+using Business.DTO.Customer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace Business.IMeneger
 {
-    public interface IAuthenticationManager
+    public interface ICustomerManager
     {
-        ClientResult Register(registerRequest request);
-        ClientResult<loginResponse> login(loginRequest request);
+        ClientResult addCustomer(addCustomerRequest request);
     }
 }
