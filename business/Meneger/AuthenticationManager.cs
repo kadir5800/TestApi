@@ -26,12 +26,14 @@ namespace Business.Meneger
             {
                 return Error<loginResponse>(message: "Gerekli Alanları Doldurunuz");
             }
-            var existingLogin = _customerDataAccess.FilterBy(f => f.UserName==request.UserName && f.Password==request.Password);
-            var user = existingLogin.Result.First();
-            if (user != null)
+            var password = MD5Hash(request.Password);
+            var existingLogin = _customerDataAccess.FilterBy(f => f.UserName==request.UserName && f.Password== password);
+           
+            if (existingLogin.Success==false || existingLogin.Result==null)
             {
                 return Error<loginResponse>(message: "Kullanıcı Adı Veya Şifre Yanlış");
             }
+            var user = existingLogin.Result.First();
             var existingtoken=_tokenDataAccess.FilterBy(f=> f.CustomerId==user.Id.ToString()).Result.First();
             if (existingtoken.TokenDate <=DateTime.Now.AddDays(-7))
             {
