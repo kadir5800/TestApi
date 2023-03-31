@@ -8,7 +8,6 @@ namespace Business.DTO.Customer
 {
     public class getOneCustomerResponse:addCustomerRequest
     {
-        public long Id { get; set; }
-
+        public DateTime CreationDate { get; set; }
     }
 }

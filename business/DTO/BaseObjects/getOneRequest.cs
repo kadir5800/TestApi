@@ -8,6 +8,6 @@ namespace Business.DTO.BaseObjects
 {
     public class getOneRequest
     {
-        public long Id { get; set; }
+        public string Id { get; set; }
     }
 }

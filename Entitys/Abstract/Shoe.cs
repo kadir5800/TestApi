@@ -8,16 +8,11 @@
         public int Gender { get; set; }
         public int Number { get; set; }
         public decimal DiscountPrice { get; set; }
-        public long? BrandsId { get; set; }
-        public long ColorsId { get; set; }
-        public long CategoryId { get; set; }
-        public long? CampaignsId { get; set; }
-        public long ModelId { get; set; }
-        public virtual Campaign Campaign { get; set; }
-        public virtual Model Model{ get; set; }
-        public virtual Brand Brand { get; set; }
-        public virtual Color Color { get; set; }
-        public virtual Category Categorie { get; set; }
-
+        public string BrandsId { get; set; }
+        public string ColorsId { get; set; }
+        public string CategoryId { get; set; }
+        public string CampaignsId { get; set; }
+        public string ModelId { get; set; }
+        public string MaterialId { get; set; }
     }
 }

@@ -8,11 +8,8 @@
         public string OrderTrackingNo { get; set; }
         public string CargoTrackingNo{ get; set; }
         public string CargoName { get; set; }
-        public long CitiesId { get; set; }
-        public long DistrictId { get; set; }
-        public long CustomerId { get; set; }
-        public virtual City Cities { get; set; }
-        public virtual District District { get; set; }
-        public virtual Customer Customers { get; set; }
+        public string CitiesId { get; set; }
+        public string DistrictId { get; set; }
+        public string CustomerId { get; set; }
     }
 }

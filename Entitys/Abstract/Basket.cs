@@ -2,7 +2,8 @@
 {
     public class Basket : DefOb
     {
-        public long ShoesId { get; set; }
-        public long CustomerId { get; set; }
+        public string ShoesId { get; set; }
+        public string CustomerId { get; set; }
+        public decimal Price { get; set; }
     }
 }

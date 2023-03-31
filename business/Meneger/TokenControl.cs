@@ -1,15 +1,19 @@
 ﻿using Business.DTO.BaseObjects;
 using Business.IMeneger;
 using EntityFramework.Abstract;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace Business.Meneger
 {
     public class TokenControl : ITokenControl
     {
         private readonly ITokenDataAccess _tokenDataAccess;
-        public TokenControl(ITokenDataAccess tokenDataAccess)
+        private readonly IServiceProvider ServiceProvider;
+        public TokenControl(IServiceProvider serviceProvider,ITokenDataAccess tokenDataAccess)
         {
-            _tokenDataAccess=tokenDataAccess;
+            ServiceProvider = serviceProvider;
+            _tokenDataAccess = ServiceProvider.GetService<ITokenDataAccess>();
         }
         public ClientObject getToken(string token)
         {
