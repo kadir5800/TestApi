@@ -19,7 +19,7 @@ namespace Business.Meneger
                 return data;
             }
 
-            var isCustomer = _tokenDataAccess.FilterBy(f => f.Token==token).Result.First();
+            var isCustomer = _tokenDataAccess.FilterBy(f => f.token==token).Result.First();
             if (isCustomer==null)
             {
                 var clo = new ClientObject() { Id="", token="", Status=false };
@@ -27,7 +27,7 @@ namespace Business.Meneger
             }
             else
             {
-                var clo = new ClientObject() { Id=isCustomer.Id.ToString(), token=isCustomer.Token, Status=true };
+                var clo = new ClientObject() { Id=isCustomer.Id.ToString(), token=isCustomer.token, Status=true };
                 return clo;
             }
         }

@@ -42,7 +42,7 @@ namespace Business.Meneger
                 Id=user.Id.ToString(),
                 Token=existingtoken.token,
             };
-            return Success<loginResponse>(message: "Başarılı", data: response);
+            return Success<loginResponse>(data: response);
         }
 
         public ClientResult Register(registerRequest request)
@@ -80,7 +80,7 @@ namespace Business.Meneger
             {
                 return Error(message: data.Message);
             }
-            return Success(message: "Başarılı");
+            return Success();
         }
         public static string MD5Hash(string input)
         {

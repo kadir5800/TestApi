@@ -19,25 +19,25 @@ namespace Business.Meneger
             ServiceProvider = serviceProvider;
             ClientContext = ServiceProvider.GetService<IClientContext>();
         }
-        protected ClientResult Success(string message = default(string), object data = default(object), int code = 200)
+        protected ClientResult Success(object data = default(object), int code = 200)
         {
             var cr = new ClientResult
             {
                 Data =data,
                 Success = true,
                 Code=code,
-                Message = message
+                Message ="Başarılı",
             };
             return cr;
         }
 
-        protected ClientResult<T> Success<T>(string message = default(string), T data = default(T), int code = 200)
+        protected ClientResult<T> Success<T>(T data = default(T), int code = 200)
         {
             var cr = new ClientResult<T>
             {
                 Success = true,
                 Code = code,
-                Message = message,
+                Message = "Başarılı",
                 Data = data
             };
 

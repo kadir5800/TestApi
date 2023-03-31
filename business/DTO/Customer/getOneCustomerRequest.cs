@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Business.DTO.Customer
 {
-    public class updateCustomerRequest:addCustomerRequest
+    public class getOneCustomerRequest
     {
+        public string Id { get; set; }
     }
 }
