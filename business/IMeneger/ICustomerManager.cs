@@ -11,5 +11,8 @@ namespace Business.IMeneger
     public interface ICustomerManager
     {
         ClientResult addCustomer(addCustomerRequest request);
+        ClientResult<getOneCustomerResponse> getOneCustomer(getOneCustomerRequest request);
+        ClientResult<getAllCustomerResponse> getAllCustomer(getAllCustomerRequest request);
+        ClientResult delteCustomer(getOneRequest request);
     }
 }

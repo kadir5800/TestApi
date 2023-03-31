@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Business.DTO.BaseObjects
 {
-    public class getOneRequest
+    public class dataTableResponse
     {
-        public string Id { get; set; }
+        public string draw { get; set; }
+        public int recordsFiltered { get; set; }
+        public int recordsTotal { get; set; }
     }
 }

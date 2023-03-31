@@ -16,21 +16,36 @@ namespace ApiCore.Controllers
 
         public CustomerController(ICustomerManager customerManager)
         {
-            _customerManager = customerManager;
+            _customerManager=customerManager;
         }
         /// <summary>
-        /// Yeni Müşteri Ekler
+        /// Kullanıcı Bilgilerini Günceller
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("addCustomer")]
+        [Route("addUpdateCustomer")]
         [AllowAnonymous]
         [ProducesResponseType(typeof(ClientResult), 200)]
-        public JsonResult addCustomer([FromBody] addCustomerRequest request)
+        public JsonResult addUpdateCustomer([FromBody] addCustomerRequest request)
         {
             var response = _customerManager.addCustomer(request);
             return new JsonResult(response);
         }
+        /// <summary>
+        /// Kullanıcı Bilgilerini Getirir
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("getOneCustomer")]
+        [AllowAnonymous]
+        [ProducesResponseType(typeof(ClientResult<getOneCustomerResponse>), 200)]
+        public JsonResult getOneCustomer([FromBody] getOneCustomerRequest request)
+        {
+            var response = _customerManager.getOneCustomer(request);
+            return new JsonResult(response);
+        }
+
     }
 }
