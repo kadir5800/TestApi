@@ -1,5 +1,5 @@
 ﻿using Business.DTO.BaseObjects;
-using Business.DTO.Brand;
+using Business.DTO.Color;
 using Business.IMeneger;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -8,82 +8,82 @@ namespace ApiCore.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BrandController : ControllerBase
+    public class ColorController : ControllerBase
     {
-        private readonly IBrandManager _brandManager;
+        private readonly IColorManager _colorManager;
 
-        public BrandController(IBrandManager brandManager)
+        public ColorController(IColorManager colorManager)
         {
-            _brandManager = brandManager;
+            _colorManager = colorManager;
         }
         /// <summary>
-        /// Marka ekler 
+        /// Renk ekler 
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("addBrand")]
+        [Route("addColor")]
         [AllowAnonymous]
         [ProducesResponseType(typeof(ClientResult), 200)]
-        public JsonResult addBrand([FromBody] addUpdateBrandRequest request)
+        public JsonResult addColor([FromBody] addUpdateColorRequest request)
         {
-            var response = _brandManager.addBrand(request);
+            var response = _colorManager.addColor(request);
             return new JsonResult(response);
         }
         /// <summary>
-        /// Marka günceller 
+        /// Renk günceller 
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("updateBrand")]
+        [Route("updateColor")]
         [AllowAnonymous]
         [ProducesResponseType(typeof(ClientResult), 200)]
-        public JsonResult updateBrand([FromBody] addUpdateBrandRequest request)
+        public JsonResult updateColor([FromBody] addUpdateColorRequest request)
         {
-            var response = _brandManager.updateBrand(request);
+            var response = _colorManager.updateColor(request);
             return new JsonResult(response);
         }
         /// <summary>
-        /// Marka günceller 
+        /// Renk günceller 
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("deleteBrand")]
+        [Route("deleteColor")]
         [AllowAnonymous]
         [ProducesResponseType(typeof(ClientResult), 200)]
-        public JsonResult deleteBrand([FromBody] getOneRequest request)
+        public JsonResult deleteColor([FromBody] getOneRequest request)
         {
-            var response = _brandManager.deleteBrand(request);
+            var response = _colorManager.deleteColor(request);
             return new JsonResult(response);
         }
         /// <summary>
-        /// Tüm Markaları getirir
+        /// Tüm Renkları getirir
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("getAllBrand")]
+        [Route("getAllColor")]
         [AllowAnonymous]
-        [ProducesResponseType(typeof(ClientResult<getAllBrandResponse>), 200)]
-        public JsonResult getAllBrand([FromBody] dataTableRequest request)
+        [ProducesResponseType(typeof(ClientResult<getAllColorResponse>), 200)]
+        public JsonResult getAllColor([FromBody] dataTableRequest request)
         {
-            var response = _brandManager.getAllBrand(request);
+            var response = _colorManager.getAllColor(request);
             return new JsonResult(response);
         }
         /// <summary>
-        /// Marka getirir
+        /// Renk getirir
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("getOneBrand")]
+        [Route("getOneColor")]
         [AllowAnonymous]
-        [ProducesResponseType(typeof(ClientResult<getOneBrandResponse>), 200)]
-        public JsonResult getOneBrand([FromBody] getOneRequest request)
+        [ProducesResponseType(typeof(ClientResult<getOneColorResponse>), 200)]
+        public JsonResult getOneColor([FromBody] getOneRequest request)
         {
-            var response = _brandManager.getOneBrand(request);
+            var response = _colorManager.getOneColor(request);
             return new JsonResult(response);
         }
     }

@@ -22,4 +22,8 @@
     <ProjectReference Include="..\EntityFramework\EntityFramework.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DTO\Model\" />
+  </ItemGroup>
+
 </Project>

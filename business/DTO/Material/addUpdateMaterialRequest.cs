@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.DTO.Category
+namespace Business.DTO.Material
 {
-    public class addCategoryRequest
+    public class addUpdateMaterialRequest
     {
-        public string Id { get; set; }
         public string Name { get; set; }
+        public string Id { get; set; }
+
     }
 }

@@ -1,14 +1,14 @@
 ﻿using Business.DTO.BaseObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Business.DTO.Category;
 
 namespace Business.IMeneger
 {
     public interface ICategoryManager
     {
-        ClientResult addCategory();
+        ClientResult addCategory(addCategoryRequest request);
+        ClientResult updateCategory(addCategoryRequest request);
+        ClientResult deleteCategory(getOneRequest request);
+        ClientResult<getOneCategoryResponse> getOneCategory(getOneRequest request);
+        ClientResult<getAllCategoryResponse> getAllCategory(dataTableRequest request);
     }
 }

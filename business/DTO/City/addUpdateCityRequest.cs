@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.DTO.Category
+namespace Business.DTO.City
 {
-    public class addCategoryRequest
+    public class addUpdateCityRequest
     {
         public string Id { get; set; }
         public string Name { get; set; }

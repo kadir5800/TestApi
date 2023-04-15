@@ -1,89 +1,91 @@
 ﻿using Business.DTO.BaseObjects;
-using Business.DTO.Brand;
+using Business.DTO.Material;
 using Business.IMeneger;
+using Business.Meneger;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiCore.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BrandController : ControllerBase
+    public class MaterialController : ControllerBase
     {
-        private readonly IBrandManager _brandManager;
+        private readonly IMaterialManager _materialManager;
 
-        public BrandController(IBrandManager brandManager)
+        public MaterialController(IMaterialManager materialManager)
         {
-            _brandManager = brandManager;
+            _materialManager = materialManager;
         }
         /// <summary>
-        /// Marka ekler 
+        /// Materyal ekler 
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("addBrand")]
+        [Route("addMaterial")]
         [AllowAnonymous]
         [ProducesResponseType(typeof(ClientResult), 200)]
-        public JsonResult addBrand([FromBody] addUpdateBrandRequest request)
+        public JsonResult addMaterial([FromBody] addUpdateMaterialRequest request)
         {
-            var response = _brandManager.addBrand(request);
+            var response = _materialManager.addMaterial(request);
             return new JsonResult(response);
         }
         /// <summary>
-        /// Marka günceller 
+        /// Materyal günceller 
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("updateBrand")]
+        [Route("updateMaterial")]
         [AllowAnonymous]
         [ProducesResponseType(typeof(ClientResult), 200)]
-        public JsonResult updateBrand([FromBody] addUpdateBrandRequest request)
+        public JsonResult updateMaterial([FromBody] addUpdateMaterialRequest request)
         {
-            var response = _brandManager.updateBrand(request);
+            var response = _materialManager.updateMaterial(request);
             return new JsonResult(response);
         }
         /// <summary>
-        /// Marka günceller 
+        /// Materyal günceller 
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("deleteBrand")]
+        [Route("deleteMaterial")]
         [AllowAnonymous]
         [ProducesResponseType(typeof(ClientResult), 200)]
-        public JsonResult deleteBrand([FromBody] getOneRequest request)
+        public JsonResult deleteMaterial([FromBody] getOneRequest request)
         {
-            var response = _brandManager.deleteBrand(request);
+            var response = _materialManager.deleteMaterial(request);
             return new JsonResult(response);
         }
         /// <summary>
-        /// Tüm Markaları getirir
+        /// Tüm Materyalları getirir
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("getAllBrand")]
+        [Route("getAllMaterial")]
         [AllowAnonymous]
-        [ProducesResponseType(typeof(ClientResult<getAllBrandResponse>), 200)]
-        public JsonResult getAllBrand([FromBody] dataTableRequest request)
+        [ProducesResponseType(typeof(ClientResult<getAllMaterialResponse>), 200)]
+        public JsonResult getAllMaterial([FromBody] dataTableRequest request)
         {
-            var response = _brandManager.getAllBrand(request);
+            var response = _materialManager.getAllMaterial(request);
             return new JsonResult(response);
         }
         /// <summary>
-        /// Marka getirir
+        /// Materyal getirir
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("getOneBrand")]
+        [Route("getOneMaterial")]
         [AllowAnonymous]
-        [ProducesResponseType(typeof(ClientResult<getOneBrandResponse>), 200)]
-        public JsonResult getOneBrand([FromBody] getOneRequest request)
+        [ProducesResponseType(typeof(ClientResult<getOneMaterialResponse>), 200)]
+        public JsonResult getOneMaterial([FromBody] getOneRequest request)
         {
-            var response = _brandManager.getOneBrand(request);
+            var response = _materialManager.getOneMaterial(request);
             return new JsonResult(response);
         }
     }

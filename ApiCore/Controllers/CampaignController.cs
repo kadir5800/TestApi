@@ -1,10 +1,7 @@
 ﻿using Business.DTO.BaseObjects;
-using Business.DTO.Brand;
 using Business.DTO.Campaign;
 using Business.IMeneger;
-using Business.Meneger;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiCore.Controllers

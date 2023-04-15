@@ -58,8 +58,8 @@ namespace Business.Meneger
                 return Error(message: "Şifreler Uyuşmuyor");
             }
             var pass = MD5Hash(request.Password);
-            var ownUser = _customerDataAccess.FilterBy(f => f.UserName==request.UserName).Result.Count();
-            if (ownUser > 0)
+            var ownUser = _customerDataAccess.FilterBy(f => f.UserName==request.UserName);
+            if (ownUser ==null)
             {
                 return Error(message: "Var olan kullanıcı adı");
             }

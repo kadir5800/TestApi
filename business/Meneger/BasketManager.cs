@@ -202,7 +202,7 @@ namespace Business.Meneger
                 return Error<getOneBasketResponse>(message: existingModel.Message);
             }
             response.Model = existingModel.Entity.Name;
-            var existingColor = _colorDataAccess.GetById(existingShoes.Entity.ColorsId);
+            var existingColor = _colorDataAccess.GetById(existingShoes.Entity.ColorsId.First());
             if (!existingColor.Success)
             {
                 return Error<getOneBasketResponse>(message: existingColor.Message);

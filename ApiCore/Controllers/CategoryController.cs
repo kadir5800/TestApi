@@ -1,5 +1,5 @@
 ﻿using Business.DTO.BaseObjects;
-using Business.DTO.Brand;
+using Business.DTO.Category;
 using Business.IMeneger;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -8,82 +8,84 @@ namespace ApiCore.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BrandController : ControllerBase
+    public class CategoryController : ControllerBase
     {
-        private readonly IBrandManager _brandManager;
+        private readonly ICategoryManager _categoryManager;
 
-        public BrandController(IBrandManager brandManager)
+        public CategoryController(ICategoryManager categoryManager)
         {
-            _brandManager = brandManager;
+            _categoryManager = categoryManager;
         }
+
         /// <summary>
-        /// Marka ekler 
+        /// Kategori ekler 
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("addBrand")]
+        [Route("addCategory")]
         [AllowAnonymous]
         [ProducesResponseType(typeof(ClientResult), 200)]
-        public JsonResult addBrand([FromBody] addUpdateBrandRequest request)
+        public JsonResult addCategory([FromBody] addCategoryRequest request)
         {
-            var response = _brandManager.addBrand(request);
+            var response = _categoryManager.addCategory(request);
             return new JsonResult(response);
         }
+
         /// <summary>
-        /// Marka günceller 
+        /// Kategori günceller 
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("updateBrand")]
+        [Route("updateCategory")]
         [AllowAnonymous]
         [ProducesResponseType(typeof(ClientResult), 200)]
-        public JsonResult updateBrand([FromBody] addUpdateBrandRequest request)
+        public JsonResult updateCategory([FromBody] addCategoryRequest request)
         {
-            var response = _brandManager.updateBrand(request);
+            var response = _categoryManager.updateCategory(request);
             return new JsonResult(response);
         }
         /// <summary>
-        /// Marka günceller 
+        /// Kategori Siler 
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("deleteBrand")]
+        [Route("deleteCategory")]
         [AllowAnonymous]
         [ProducesResponseType(typeof(ClientResult), 200)]
-        public JsonResult deleteBrand([FromBody] getOneRequest request)
+        public JsonResult deleteCategory([FromBody] getOneRequest request)
         {
-            var response = _brandManager.deleteBrand(request);
+            var response = _categoryManager.deleteCategory(request);
             return new JsonResult(response);
         }
         /// <summary>
-        /// Tüm Markaları getirir
+        /// Tüm Kategoriları getirir
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("getAllBrand")]
+        [Route("getAllCategory")]
         [AllowAnonymous]
-        [ProducesResponseType(typeof(ClientResult<getAllBrandResponse>), 200)]
-        public JsonResult getAllBrand([FromBody] dataTableRequest request)
+        [ProducesResponseType(typeof(ClientResult<getAllCategoryResponse>), 200)]
+        public JsonResult getAllCategory([FromBody] dataTableRequest request)
         {
-            var response = _brandManager.getAllBrand(request);
+            var response = _categoryManager.getAllCategory(request);
             return new JsonResult(response);
         }
         /// <summary>
-        /// Marka getirir
+        /// Kategori getirir
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("getOneBrand")]
+        [Route("getOneCategory")]
         [AllowAnonymous]
-        [ProducesResponseType(typeof(ClientResult<getOneBrandResponse>), 200)]
-        public JsonResult getOneBrand([FromBody] getOneRequest request)
+        [ProducesResponseType(typeof(ClientResult<getOneCategoryResponse>), 200)]
+        public JsonResult getOneCategory([FromBody] getOneRequest request)
         {
-            var response = _brandManager.getOneBrand(request);
+            var response = _categoryManager.getOneCategory(request);
             return new JsonResult(response);
         }
     }

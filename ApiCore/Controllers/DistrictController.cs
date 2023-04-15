@@ -1,5 +1,5 @@
 ﻿using Business.DTO.BaseObjects;
-using Business.DTO.Brand;
+using Business.DTO.District;
 using Business.IMeneger;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -8,82 +8,82 @@ namespace ApiCore.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BrandController : ControllerBase
+    public class DistrictController : ControllerBase
     {
-        private readonly IBrandManager _brandManager;
+        private readonly IDistrictManager _districtManager;
 
-        public BrandController(IBrandManager brandManager)
+        public DistrictController(IDistrictManager districtManager)
         {
-            _brandManager = brandManager;
+            _districtManager = districtManager;
         }
         /// <summary>
-        /// Marka ekler 
+        /// İlçe ekler 
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("addBrand")]
+        [Route("addDistrict")]
         [AllowAnonymous]
         [ProducesResponseType(typeof(ClientResult), 200)]
-        public JsonResult addBrand([FromBody] addUpdateBrandRequest request)
+        public JsonResult addDistrict([FromBody] addUpdateDistrictRequest request)
         {
-            var response = _brandManager.addBrand(request);
+            var response = _districtManager.addDistrict(request);
             return new JsonResult(response);
         }
         /// <summary>
-        /// Marka günceller 
+        /// İlçe günceller 
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("updateBrand")]
+        [Route("updateDistrict")]
         [AllowAnonymous]
         [ProducesResponseType(typeof(ClientResult), 200)]
-        public JsonResult updateBrand([FromBody] addUpdateBrandRequest request)
+        public JsonResult updateDistrict([FromBody] addUpdateDistrictRequest request)
         {
-            var response = _brandManager.updateBrand(request);
+            var response = _districtManager.updateDistrict(request);
             return new JsonResult(response);
         }
         /// <summary>
-        /// Marka günceller 
+        /// İlçe günceller 
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("deleteBrand")]
+        [Route("deleteDistrict")]
         [AllowAnonymous]
         [ProducesResponseType(typeof(ClientResult), 200)]
-        public JsonResult deleteBrand([FromBody] getOneRequest request)
+        public JsonResult deleteDistrict([FromBody] getOneRequest request)
         {
-            var response = _brandManager.deleteBrand(request);
+            var response = _districtManager.deleteDistrict(request);
             return new JsonResult(response);
         }
         /// <summary>
-        /// Tüm Markaları getirir
+        /// Tüm İlçeları getirir
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("getAllBrand")]
+        [Route("getAllDistrict")]
         [AllowAnonymous]
-        [ProducesResponseType(typeof(ClientResult<getAllBrandResponse>), 200)]
-        public JsonResult getAllBrand([FromBody] dataTableRequest request)
+        [ProducesResponseType(typeof(ClientResult<getAllDistrictResponse>), 200)]
+        public JsonResult getAllDistrict([FromBody] dataTableRequest request)
         {
-            var response = _brandManager.getAllBrand(request);
+            var response = _districtManager.getAllDistrict(request);
             return new JsonResult(response);
         }
         /// <summary>
-        /// Marka getirir
+        /// İlçe getirir
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("getOneBrand")]
+        [Route("getOneDistrict")]
         [AllowAnonymous]
-        [ProducesResponseType(typeof(ClientResult<getOneBrandResponse>), 200)]
-        public JsonResult getOneBrand([FromBody] getOneRequest request)
+        [ProducesResponseType(typeof(ClientResult<getOneDistrictResponse>), 200)]
+        public JsonResult getOneDistrict([FromBody] getOneRequest request)
         {
-            var response = _brandManager.getOneBrand(request);
+            var response = _districtManager.getOneDistrict(request);
             return new JsonResult(response);
         }
     }
